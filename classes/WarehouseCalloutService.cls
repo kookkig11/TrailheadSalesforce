@@ -51,3 +51,23 @@ public with sharing class WarehouseCalloutService {
         }
     }
 }
+
+/*
+List<Object> result = (List<Object>) JSON.deserializeUntyped(res.getBody());
+            
+// Equipment to be Serviced >> releated to Product2
+List<Product2> productList = new List<Product2>();
+for (Object i : result) {
+    Map<String, Object> mapProduct = (Map<String, Object>) i;
+    Product2 product = new Product2(ProductCode = (String)mapProduct.get('_id'),
+                                    Name = (String)mapProduct.get('name'),
+                                    Maintenance_Cycle__c = (Integer)mapProduct.get('maintenanceperiod'),
+                                    Cost__c = (Integer)mapProduct.get('cost'),
+                                    Current_Inventory__c = (Integer)mapProduct.get('quantity'),
+                                    Lifespan_Months__c = (Integer)mapProduct.get('lifespan'),
+                                    Replacement_Part__c = (Boolean)mapProduct.get('replacement'),
+                                    Warehouse_SKU__c = (String)mapProduct.get('sku'));
+    productList.add(product);
+}
+System.debug(productList);
+*/
