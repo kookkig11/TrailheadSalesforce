@@ -1,11 +1,13 @@
 @IsTest
 private class WarehouseCalloutServiceTest {
-    public static testMethod void test() {
+    @isTest
+    static void WarehouseEquipmentSync(){
+        Test.startTest();
         // implement your mock callout test here
         Test.setMock(HttpCalloutMock.class, new WarehouseCalloutServiceMock());
-        
-        Test.startTest();
+
         WarehouseCalloutService.runWarehouseEquipmentSync();
         Test.stopTest();
+        System.assertEquals(1, [SELECT count() FROM Product2]);
     }
 }
