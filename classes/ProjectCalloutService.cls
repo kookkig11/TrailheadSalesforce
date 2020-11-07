@@ -1,8 +1,8 @@
 public class ProjectCalloutService {
     //Complete the implementation for business and callout logic
     @InvocableMethod
-    public static void postOpportunityToPMS(List<Id> oppoIds) {
-        Opportunity opp = [SELECT Id, Name, Account.Name, CloseDate, Amount FROM Opportunity WHERE Id = :oppoIds[0]];
+    public static void postOpportunityToPMS(List<Id> oppId) {
+        Opportunity opp = [SELECT Id, Name, Account.Name, CloseDate, Amount FROM Opportunity WHERE Id =: oppId[0]];
         String serviceToken = ServiceTokens__c.getValues('ProjectServiceToken').Token__c;
         String inputJSON =  '{\n' +
                             ' "opportunityId" : "' + opp.Id + '",\n'+
