@@ -1,4 +1,3 @@
-@isTest
 global class ProjectCalloutServiceMock implements HttpCalloutMock {
    //Implement http mock callout here
     global HTTPResponse respond(HTTPRequest req) {
