@@ -6,6 +6,7 @@ global class ProjectRESTService {
                                         Date StartDate, Date EndDate, Double Amount, String Status) {
         // accepts the 'post' and inserts (or updates) a corresponding project record associated with the opportunity
         String message = '';
+        Savepoint sp = Database.setSavepoint();
         try {
             List<Opportunity> oppList = new List<Opportunity>();
             // update the Delivery/Installation Status field as In Progress on the associated opportunity record
@@ -27,6 +28,7 @@ global class ProjectRESTService {
 
             message = 'OK';
         } catch (Exception e){
+            Database.RollBack(sp);
             message = e.getMessage();
         }
 
