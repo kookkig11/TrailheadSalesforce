@@ -31,6 +31,7 @@ global class ProjectRESTService {
             Database.RollBack(sp);
             message = e.getMessage();
         }
+        System.debug('return : ' + message);
 
         return message;
     }
