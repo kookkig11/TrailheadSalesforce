@@ -1,0 +1,21 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId">
+    <aura:attribute name="accountRecord" type="Object"/>
+    <aura:attribute name="record" type="Object" />
+
+    <force:recordData   aura:id="recordView"
+                        fields="Industry, Description, Phone"
+                        recordId="{!v.recordId}"
+                        targetRecord="{!v.record}"
+                        targetFields ="{!v.accountRecord}"
+                        mode="VIEW"/>
+
+    <lightning:card title='{!v.accountRecord.Name}'>
+        <p>    
+            <lightning:formattedText title='Industry' value="{!v.accountRecord.Industry}"/>
+        </p>
+        <p>
+            <lightning:formattedText title='Description' value="{!v.accountRecord.Description}"/>
+        </p>
+        <lightning:formattedPhone title='Phone' value="{!v.accountRecord.Phone}"/>
+    </lightning:card>
+</aura:component>
