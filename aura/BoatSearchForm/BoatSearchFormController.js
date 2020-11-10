@@ -1,5 +1,6 @@
 ({
     doInit : function(component, event, helper) {
+        //Get the boat Types
         helper.LoadBoatTypes(component,event);
         var seb=component.get("v.selectedBoatType");
         console.log("Seleted boat in doint :"+seb);
@@ -11,10 +12,8 @@
    
     onboatTypechange :function(component, event, helper) {
         component.set("v.selectedBoatType", component.find("boatTypes").get("v.value"));
-       
     }, 
     createBoat: function(component,event){
-       
         var boatTypeId=component.get("v.selectedBoatType");
         var createRecordEvent=$A.get("e.force:createRecord");
         createRecordEvent.setParams({
@@ -23,5 +22,19 @@
         });
         console.log("boatTypeId"+boatTypeId);
         createRecordEvent.fire();
+    },
+   
+    onFormSubmit : function(component,event) {
+        var boatTypeId = component.find("boatTypes").get("v.value");
+        var data = {
+            "boatTypeId" : boatTypeId
+        };
+       
+        var formsubmit = component.getEvent("formsubmit");
+        formsubmit.setParams({
+            "formData" :data
+        });
+       
+        formsubmit.fire();
     },
 })

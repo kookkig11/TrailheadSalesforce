@@ -1,0 +1,12 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <aura:attribute name="boat" type="Boat__c[]"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <lightning:button class="tile">
+        <!-- Image -->
+        <div style="{!'background-image: url(\'' + v.boat.Picture__c + '\')'}" class="innertile">
+            <div class="lower-third">
+                <h1 class="slds-truncate">{!v.boat.Name}</h1>
+            </div>
+        </div>
+    </lightning:button>
+</aura:component>

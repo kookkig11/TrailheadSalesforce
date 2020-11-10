@@ -1,7 +1,6 @@
 ({
     LoadBoatTypes : function(component,event) {
-        var action=component.get("c.getBoatTypes");
-       
+        var action=component.get("c.getBoatType");
         action.setCallback(this,function(response) {
             var state= response.getState();
             if(state==='SUCCESS'){
@@ -11,6 +10,6 @@
                 console.log("Failed with state: " + state);
             }
         });
-        $A.enqueueAction(action);
+        $A.enqueueAction(action);  
     },
 })

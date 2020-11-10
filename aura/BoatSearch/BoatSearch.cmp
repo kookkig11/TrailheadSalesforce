@@ -1,4 +1,5 @@
 <aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global" >
+    <aura:handler name="formsubmit" event="c:formsubmit" action="{!c.onFormSubmit}"/>
     <div class="FindBoat">
         <lightning:card title="Find a Boat">
             <c:BoatSearchForm/>

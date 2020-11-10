@@ -1,8 +1,10 @@
-<aura:component controller="BoatTypeController" implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+<aura:component controller="BoatSearchResults" implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
     <aura:attribute type="BoatType__c[]" name="BoatTypes"/>
     <aura:attribute type="Boolean" name="isNewButtonAvailable" default="false"/>
     <aura:attribute type="BoatType__c" name="selectedBoatType"/>
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:registerEvent name="formsubmit" type="c:formsubmit"/>
+   
    
     <lightning:layout horizontalAlign="center" verticalAlign="end">         
         <lightning:layoutItem padding="around-small">
@@ -15,7 +17,8 @@
         </lightning:layoutItem>
        
         <lightning:layoutItem padding="around-small">
-            <lightning:button variant="brand" label="Search"/>
+            <lightning:button variant="brand" label="Search" onclick="{!c.onFormSubmit}"/>
+           
             <aura:if isTrue="{!v.isNewButtonAvailable}">
                 <lightning:button variant="neutral" label="New" onclick="{!c.createBoat}"/>
             </aura:if>
@@ -23,3 +26,4 @@
     </lightning:layout>
    
 </aura:component>
+
