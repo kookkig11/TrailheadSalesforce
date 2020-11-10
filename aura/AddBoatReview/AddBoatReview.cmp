@@ -11,10 +11,11 @@
                       targetRecord="{!v.simpleboatReview}"
                       targetError="{!v.recordError}"
                       recordUpdated="{!c.onRecordUpdated}"/>
-   
+    
     <div class="slds-form slds-form_stacked">
         <lightning:input aura:id="title" name="Title" label="Title" value="{!v.boatReview.Name}" required="true"/>
         <lightning:inputRichText aura:id="description" title="description" disabledCategories="FORMAT_FONT" value="{!v.boatReview.Comment__c}"/>
+        <c:FiveStarRating value="{!v.boatReview.Rating__c}" readonly="false"/>
         <lightning:button label="Submit" iconName="utility:save" variant="brand" onclick="{!c.onSave}"/>
     </div>
     <aura:if isTrue="{!not(empty(v.recordError))}">

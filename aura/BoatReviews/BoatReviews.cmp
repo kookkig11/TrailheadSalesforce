@@ -4,34 +4,34 @@
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
     <aura:handler name="change" value="{!v.boat}" action="{!c.doInit}"/>
     <aura:method name="refresh" action="{!c.doInit}" access="public"/>
-   
+    
     <ui:scrollerWrapper class="slds-feed">
         <ul class="slds-feed__list">
             <aura:iteration items="{!v.boatReviews}" var="boatReview">
-               
+                
                 <li class="slds-feed__item">
                     <article class="slds-post">
-                       
+                        
                         <header class="slds-post__header slds-media">
-                           
+                            
                             <div class="slds-media__figure">
                                 <a href="javascript:void(0);" class="slds-avatar slds-avatar_circle">
-                                    <img alt="{!boatReview.CreatedBy.Name}"
-                                         src="{!boatReview.CreatedBy.SmallPhotoUrl}"
+                                    <img alt="{!boatReview.CreatedBy.Name}" 
+                                         src="{!boatReview.CreatedBy.SmallPhotoUrl}" 
                                          title="{!boatReview.CreatedBy.Name}" />
                                 </a>
                             </div>
-                           
+                            
                             <div class="slds-media__body">
                                 <div>
                                     <p>
-                                        <a href="javascript:void(0);"
-                                           title="{!boatReview.CreatedBy.Name}"
-                                           data-userid="{!boatReview.CreatedBy.Id}"
+                                        <a href="javascript:void(0);" 
+                                           title="{!boatReview.CreatedBy.Name}" 
+                                           data-userid="{!boatReview.CreatedBy.Id}" 
                                            onclick="{!c.onUserInfoClick}">
                                             {!boatReview.CreatedBy.Name}
                                         </a>
-                                        <aura:if isTrue="{!boatReview.CreatedBy.CompanyName}">
+                                        <aura:if isTrue="{!boatReview.CreatedBy.CompanyName}"> 
                                             — {!boatReview.CreatedBy.CompanyName}
                                         </aura:if>
                                     </p>
@@ -41,20 +41,20 @@
                                     </p>
                                 </div>
                             </div>
-                           
+                            
                         </header>
-                       
+                        
                         <div class="slds-post__content slds-text-longform">
                             <p>{!boatReview.Name}</p>
                             <lightning:formattedRichText value="{!boatReview.Comment__c}" />
+                            <c:FiveStarRating value="{!boatReview.Rating__c}" readonly="true"/>
                         </div>
-                       
                     </article>
                 </li>
-               
+                
             </aura:iteration>
         </ul>
-       
+        
         <aura:if isTrue="{!v.boatReviews.length==0}">
             <div class="slds-align_absolute-center">
                 No reviews available
