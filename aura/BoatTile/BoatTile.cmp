@@ -1,7 +1,9 @@
 <aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
     <aura:attribute name="boat" type="Boat__c[]"/>
+    <aura:attribute name="selected" type="Boolean" default="false"/>
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
-    <lightning:button class="tile">
+    <aura:registerEvent name="BoatSelect" type="c:BoatSelect"/>      
+    <lightning:button class="{!v.selected ? 'tile selected' : 'tile'}" onclick="{!c.onBoatClick}" value="{!v.boat.Id}">
         <!-- Image -->
         <div style="{!'background-image: url(\'' + v.boat.Picture__c + '\')'}" class="innertile">
             <div class="lower-third">
