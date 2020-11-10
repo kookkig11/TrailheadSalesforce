@@ -8,10 +8,14 @@
     },
    
     onRecordUpdated :function(component, event, helper){
-        component.find("service").reloadRecord();  
+        component.find("service").reloadRecord();   
     },
-    
+   
     onBoatReviewAdded : function(component, event, helper) {
-      component.set('v.selectedTabId', 'boatreviewtab');
+        component.set('v.selectedTabId', 'boatreviewtab');
+        var boatreviewcomponent = component.find("boatreviewcomponent");
+        if(boatreviewcomponent){
+            boatreviewcomponent.refresh();
+        }
     },
 })
