@@ -1,5 +1,4 @@
-@isTest(seeAllData = false)
-private class Product2Tests {
+@isTest(seeAllData = false) private class Product2Tests {
 	/**
 	 * @name product2Extension_UnitTest
 	 * @description UnitTest for product2Extension
